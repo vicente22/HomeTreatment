@@ -43,6 +43,7 @@
     <EditText
         android:id="@+id/editTextAge"
         android:layout_width="30dp"
+        android:maxLength="2"
         android:layout_height="wrap_content"
         android:background="@color/colorBtn"
         android:inputType="number" />
