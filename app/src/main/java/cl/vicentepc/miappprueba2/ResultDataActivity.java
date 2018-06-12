@@ -22,10 +22,6 @@ public class ResultDataActivity extends AppCompatActivity {
     private TextView textViewAboutMyAnnoyance;
     private TextView textViewHomeTreatment;
 
-    private Button showAllBtn;
-
-    private ListView listViewResult;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +31,6 @@ public class ResultDataActivity extends AppCompatActivity {
         textViewResultAge = findViewById(R.id.textViewResultAge);
         textViewAboutMyAnnoyance = findViewById(R.id.textViewResultMyAnnoyance);
         textViewHomeTreatment = findViewById(R.id.textViewHomeTreatment);
-
-        showAllBtn = findViewById(R.id.showAllBtn);
-
-        listViewResult = findViewById(R.id.listViewResult);
 
         String resultName = getIntent().getStringExtra("name");
         int resultAge = getIntent().getIntExtra("age", 0);
@@ -50,26 +42,6 @@ public class ResultDataActivity extends AppCompatActivity {
         textViewAboutMyAnnoyance.setText(resultAboutMyAnnoyance);
         textViewHomeTreatment.setText(resultHomeTreatment);
 
-        showAllBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listViewResult.setVisibility(View.VISIBLE);
-                chargeMyListview();
-            }
-        });
-
-    }
-
-    public void chargeMyListview(){
-        List<Client> clientList = Client.listAll(Client.class);
-        ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < clientList.size(); i++) {
-            Client result = clientList.get(i);
-            Log.d("DATOS", "Nombre: " + result.getName() + ", Edad: " + String.valueOf(result.getAge()) + ", Malestar: " + result.getAboutMyAnnoyance() + ", Tratamiento: " + result.getHomeTreatment());
-            list.add("Nombre: " + result.getName() + ", Edad: " + String.valueOf(result.getAge()) + ", Malestar: " + result.getAboutMyAnnoyance() + ", Tratamiento: " + result.getHomeTreatment());
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-        listViewResult.setAdapter(adapter);
     }
 
 }

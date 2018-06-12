@@ -1,18 +1,13 @@
 package cl.vicentepc.miappprueba2;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.util.List;
 
 import cl.vicentepc.miappprueba2.models.Client;
 
@@ -43,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "CAMPO NOMBRE ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
                 } else if (editTextAge.getText().toString().equals("")) {
                     Toast.makeText(MainActivity.this, "CAMPO EDAD ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
+                } else if (editTextAge.getText().toString().equals("00")) {
+                    Toast.makeText(MainActivity.this, "TU EDAD DEBE SER MAYOR A 0", Toast.LENGTH_LONG).show();
+                } else if (editTextAge.getText().toString().equals("0")) {
+                    Toast.makeText(MainActivity.this, "TU EDAD DEBE SER MAYOR A 0", Toast.LENGTH_LONG).show();
                 } else if (editTextAboutMyAnnoyance.getText().toString().equals("")) {
                     Toast.makeText(MainActivity.this, "CAMPO MALESTAR ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
                 } else if (editTextHomeTreatment.getText().toString().equals("")) {
@@ -52,10 +51,12 @@ public class MainActivity extends AppCompatActivity {
                     int age = Integer.parseInt(editTextAge.getText().toString());
                     String myAnnoyance = editTextAboutMyAnnoyance.getText().toString();
                     String homeTreatment = editTextHomeTreatment.getText().toString();
+
                     Client client = new Client(name, age, myAnnoyance, homeTreatment);
+
                     client.save();
+
                     Toast.makeText(MainActivity.this, "Tratamiento guardado", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(MainActivity.this, "Formulario completado", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, ResultDataActivity.class);
                     intent.putExtra("name", name);
                     intent.putExtra("age", age);
@@ -63,10 +64,11 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("homeTreatment", homeTreatment);
                     startActivity(intent);
                 }
+
             }
         });
-        /*Añadir un dato
-        Favorite favoriteList2 = new Favorite("www.google.cl", true);
-        favoriteList2.save();*/
+
     }
+
+
 }
