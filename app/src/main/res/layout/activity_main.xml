@@ -1,127 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryLight"
-    android:orientation="vertical"
+    android:fillViewport="true"
     android:padding="5dp"
-    tools:context=".MainActivity">
+    tools:context=".views.MainActivity">
 
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBtn"
-        android:drawableLeft="@mipmap/baseline_local_hospital_black_36dp"
-        android:drawableRight="@mipmap/baseline_local_hospital_black_36dp"
-        android:padding="10dp"
-        android:text="TRATAMIENTO CASERO"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryText"
-        android:textSize="20dp" />
+        android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/colorPrimary"
+            android:drawableLeft="@mipmap/baseline_local_hospital_black_36dp"
+            android:drawableRight="@mipmap/baseline_local_hospital_black_36dp"
+            android:padding="10dp"
+            android:text="TRATAMIENTO CASERO"
+            android:textAlignment="center"
+            android:textColor="@color/colorBtn"
+            android:textSize="20dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nombre completo:"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre completo:"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editTextName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorBtn"
-                android:hint="Ingresa tu nombre..." />
+        <EditText
+            android:imeOptions="actionNext"
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBtn"
+            android:hint="Ingresa tu nombre..." />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Edad" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edad: " />
 
-            <EditText
-                android:id="@+id/editTextAge"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:background="@color/colorBtn"
-                android:inputType="number"
-                android:maxLength="2" />
+        <EditText
+            android:imeOptions="actionNext"
+            android:id="@+id/editTextAge"
+            android:layout_width="30dp"
+            android:hint="10"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBtn"
+            android:inputType="number"
+            android:maxLength="2" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Acerca del malestar:"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acerca del malestar:"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:lines="5"
-                android:maxLines="5"
-                android:id="@+id/editTextAboutMyAnnoyance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorBtn"
-                android:gravity="top"
-                android:hint="Escribe un poco del malestar..."
-                android:inputType="text|textMultiLine"
-                android:textAlignment="gravity" />
+        <EditText
+            android:imeOptions="actionNext"
+            android:lines="4"
+            android:maxLines="4"
+            android:id="@+id/editTextAboutMyAnnoyance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBtn"
+            android:gravity="top"
+            android:hint="Escribe un poco del malestar..."
+            android:inputType="text|textMultiLine"
+            android:textAlignment="gravity" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tu tratamiento"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tu tratamiento"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:lines="5"
-                android:maxLines="5"
-                android:id="@+id/editTextHomeTreatment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@color/colorBtn"
-                android:gravity="top"
-                android:hint="Escribe tu tratamiento casero"
-                android:inputType="text|textMultiLine"
-                android:textAlignment="gravity" />
+        <EditText
+            android:imeOptions="actionNext"
+            android:lines="4"
+            android:maxLines="4"
+            android:id="@+id/editTextHomeTreatment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:background="@color/colorBtn"
+            android:gravity="top"
+            android:hint="Escribe tu tratamiento casero..."
+            android:inputType="text|textMultiLine"
+            android:textAlignment="gravity" />
 
-            <Button
-                android:id="@+id/completeBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="10dp"
-                android:background="@color/colorPrimaryDark"
-                android:text="COMPLETAR FORMULARIO"
-                android:textColor="@color/colorBtn" />
+        <Button
+            android:id="@+id/completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorAccent"
+            android:text="AGREGAR TRATAMIENTO"
+            android:textColor="@color/colorPrimaryText" />
 
-            <fragment
-                tools:layout="@layout/fragment_registered"
-                android:id="@+id/fragmentRegistered"
-                android:name="cl.vicentepc.miappprueba2.RegisteredFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"></fragment>
+        <fragment
+            tools:layout="@layout/fragment_registered"
+            android:id="@+id/fragmentRegistered"
+            android:name="cl.vicentepc.miappprueba2.views.RegisteredFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></fragment>
 
-        </LinearLayout>
+    </LinearLayout>
 
-    </ScrollView>
-
-</LinearLayout>
+</ScrollView>

@@ -1,6 +1,7 @@
-package cl.vicentepc.miappprueba2;
+package cl.vicentepc.miappprueba2.views;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,10 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import cl.vicentepc.miappprueba2.R;
+import cl.vicentepc.miappprueba2.UserClickListener;
 import cl.vicentepc.miappprueba2.adapters.UsersAdapter;
-import cl.vicentepc.miappprueba2.models.Client;
+import cl.vicentepc.miappprueba2.details.DetailsTreatement;
+import cl.vicentepc.miappprueba2.models.User;
 
 
 /**
@@ -34,10 +37,11 @@ public class RegisteredFragment extends Fragment implements UserClickListener {
 
     private UsersAdapter adapter;
 
+    public static final String USER_ID = "cl.vicentepc.miappprueba2.views.main.KEY.USER_ID";
+
     private boolean hideShow;
 
     public RegisteredFragment() {
-        // Required empty public constructor
     }
 
 
@@ -56,8 +60,6 @@ public class RegisteredFragment extends Fragment implements UserClickListener {
 
         hideAllBtn = view.findViewById(R.id.hideAllBtn);
 
-        textViewHomeTreatmentList = view.findViewById(R.id.textViewHomeTreatmentList);
-
         recyclerViewResult = view.findViewById(R.id.recyclerViewResult);
         recyclerViewResult.setHasFixedSize(true);
 
@@ -69,14 +71,13 @@ public class RegisteredFragment extends Fragment implements UserClickListener {
 
         hideShow = true;
 
-        if(hideShow == true) {
+        if (hideShow == true) {
 
             showAllBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     hideShow = false;
-                    textViewHomeTreatmentList.setVisibility(View.VISIBLE);
                     recyclerViewResult.setVisibility(View.VISIBLE);
                     showAllBtn.setVisibility(View.INVISIBLE);
                     hideAllBtn.setVisibility(View.VISIBLE);
@@ -84,20 +85,18 @@ public class RegisteredFragment extends Fragment implements UserClickListener {
                 }
             });
 
-        }else if(hideShow == false) {
+        } else if (hideShow == false) {
 
             hideShow = true;
             hideAllBtn.setVisibility(View.INVISIBLE);
             showAllBtn.setVisibility(View.VISIBLE);
 
         }
-
         hideAllBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 hideShow = true;
-                textViewHomeTreatmentList.setVisibility(View.INVISIBLE);
                 recyclerViewResult.setVisibility(View.INVISIBLE);
                 hideAllBtn.setVisibility(View.INVISIBLE);
                 showAllBtn.setVisibility(View.VISIBLE);
@@ -107,14 +106,19 @@ public class RegisteredFragment extends Fragment implements UserClickListener {
 
     }
 
-    public void updateList(Client client) {
-        adapter.update(client);
-        Log.e("Client", client.getName());
+    public void updateList(User user) {
+        adapter.update(user);
+        Log.e("USER", user.getName());
     }
 
     @Override
     public void clickedID(long id) {
-        Toast.makeText(getContext(), String.valueOf(id), Toast.LENGTH_SHORT).show();
+
+        //Toast.makeText(getContext(), String.valueOf(id), Toast.LENGTH_SHORT).show();
+        Intent myIntent = new Intent(getActivity(), DetailsTreatement.class);
+        myIntent.putExtra(USER_ID, id);
+        startActivity(myIntent);
+
     }
 
 }

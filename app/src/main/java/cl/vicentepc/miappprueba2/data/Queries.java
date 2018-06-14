@@ -1,22 +1,31 @@
 package cl.vicentepc.miappprueba2.data;
 
+import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import cl.vicentepc.miappprueba2.models.Client;
+import cl.vicentepc.miappprueba2.models.User;
 
 public class Queries {
 
-    public List<Client> clients () {
+    public List<User> users () {
 
-        List<Client> clients = new ArrayList<>();
-        List<Client> clientList = Client.listAll(Client.class);
-        /*if (clientList != null && clientList.size() > 0){
-            clients.addAll(clientList);
-        }*/
+        List<User> users = new ArrayList<>();
+        List<User> userList = User.listAll(User.class);
+        Log.e("LIST", userList.toString());
 
-        return clientList;
+        return userList;
 
     }
+
+    public User byId(long idUser){
+        User user;
+        user = User.findById(User.class, idUser);
+        return user;
+    }
+
 
 }

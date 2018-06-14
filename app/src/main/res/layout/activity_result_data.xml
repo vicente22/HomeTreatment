@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ResultDataActivity">
+    tools:context=".views.ResultDataActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/back"
                 android:textAlignment="center"
-                android:textColor="@color/colorBtn"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="20sp" />
 
             <TextView
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/back"
                 android:textAlignment="center"
-                android:textColor="@color/colorBtn"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="20sp" />
 
             <TextView
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/back"
                 android:textAlignment="center"
-                android:textColor="@color/colorBtn"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="20sp" />
 
             <TextView
@@ -78,13 +78,13 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/back"
                 android:textAlignment="center"
-                android:textColor="@color/colorBtn"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="20sp" />
 
             <fragment
                 tools:layout="@layout/fragment_registered"
                 android:id="@+id/fragmentRegistered"
-                android:name="cl.vicentepc.miappprueba2.RegisteredFragment"
+                android:name="cl.vicentepc.miappprueba2.views.RegisteredFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></fragment>
 

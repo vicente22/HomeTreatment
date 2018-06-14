@@ -9,7 +9,7 @@
         android:id="@+id/fragmentRegistered"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".RegisteredFragment">
+        tools:context=".views.RegisteredFragment">
 
         <Button
             android:id="@+id/showAllBtn"
@@ -19,7 +19,7 @@
             android:layout_marginBottom="10dp"
             android:background="@color/colorAccent"
             android:text="VER REGISTROS REALIZADOS"
-            android:textColor="@color/colorBtn" />
+            android:textColor="@color/colorPrimaryText" />
         <Button
             android:id="@+id/hideAllBtn"
             android:visibility="invisible"
@@ -27,30 +27,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginBottom="10dp"
-            android:background="@color/colorPrimaryLight"
+            android:background="@color/colorBtn"
             android:text="OCULTAR REGISTROS"
             android:textColor="@color/colorPrimaryText" />
-
-        <TextView
-            android:id="@+id/textViewHomeTreatmentList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/showAllBtn"
-            android:background="@color/colorBtn"
-            android:drawableLeft="@mipmap/baseline_local_hospital_black_36dp"
-            android:drawableRight="@mipmap/baseline_local_hospital_black_36dp"
-            android:padding="10dp"
-            android:text="TRATAMIENTOS REGISTRADOS:"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="20dp"
-            android:visibility="invisible" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerViewResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewHomeTreatmentList"
+            android:layout_below="@+id/hideAllBtn"
             android:scrollbars="vertical"
             android:visibility="invisible">
 

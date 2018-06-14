@@ -1,19 +1,9 @@
-package cl.vicentepc.miappprueba2;
+package cl.vicentepc.miappprueba2.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import cl.vicentepc.miappprueba2.models.Client;
+import cl.vicentepc.miappprueba2.R;
 
 public class ResultDataActivity extends AppCompatActivity {
 
@@ -26,6 +16,9 @@ public class ResultDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_data);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         textViewResultName = findViewById(R.id.textViewResultName);
         textViewResultAge = findViewById(R.id.textViewResultAge);

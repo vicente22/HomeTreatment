@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorBtn">
+
+    <TextView
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:background="@drawable/orange_border"
+        android:textSize="18sp"
+        android:id="@+id/recyclerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/textViewAgeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recyclerName"
+        android:padding="5dp"
+        android:text="Edad: " />
+
+    <TextView
+        android:id="@+id/recyclerAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/recyclerName"
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/textViewMyAnnoyanceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewAgeTitle"
+        android:padding="5dp"
+        android:text="Malestar: " />
+
+    <TextView
+        android:id="@+id/recyclerMyAnnoyance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textViewAgeTitle"
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/textViewHomeTreatmentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewMyAnnoyanceTitle"
+        android:padding="5dp"
+        android:text="Tratamiento: " />
+
+    <TextView
+        android:background="@drawable/black_border"
+        android:id="@+id/recyclerHomeTreatment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textViewHomeTreatmentTitle"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
+
+</RelativeLayout>

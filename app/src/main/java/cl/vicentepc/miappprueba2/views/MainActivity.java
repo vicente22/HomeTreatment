@@ -1,15 +1,17 @@
-package cl.vicentepc.miappprueba2;
+package cl.vicentepc.miappprueba2.views;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import cl.vicentepc.miappprueba2.models.Client;
+import cl.vicentepc.miappprueba2.R;
+import cl.vicentepc.miappprueba2.adapters.UsersAdapter;
+import cl.vicentepc.miappprueba2.models.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         editTextName = findViewById(R.id.editTextName);
         editTextAge = findViewById(R.id.editTextAge);
@@ -47,14 +52,22 @@ public class MainActivity extends AppCompatActivity {
                 } else if (editTextHomeTreatment.getText().toString().equals("")) {
                     Toast.makeText(MainActivity.this, "CAMPO TRATAMIENTO ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
                 } else {
+
                     String name = editTextName.getText().toString();
                     int age = Integer.parseInt(editTextAge.getText().toString());
                     String myAnnoyance = editTextAboutMyAnnoyance.getText().toString();
                     String homeTreatment = editTextHomeTreatment.getText().toString();
 
-                    Client client = new Client(name, age, myAnnoyance, homeTreatment);
+                    User user = new User();
+                    user.setName(name);
+                    user.setAge(age);
+                    user.setAboutMyAnnoyance(myAnnoyance);
+                    user.setHomeTreatment(homeTreatment);
 
-                    client.save();
+                    user.save();
+
+                    //User user = new User(name, age, myAnnoyance, homeTreatment);
+                    //user.save();
 
                     Toast.makeText(MainActivity.this, "Tratamiento guardado", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, ResultDataActivity.class);

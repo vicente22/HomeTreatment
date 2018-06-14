@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimaryLight"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".details.DetailsTreatement"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:drawableLeft="@mipmap/baseline_local_hospital_black_36dp"
+            android:drawableRight="@mipmap/baseline_local_hospital_black_36dp"
+            android:padding="10dp"
+            android:text="EDICION DEL TRATAMIENTO"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="20dp" />
+
+        <EditText
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBtn"
+            android:hint="Edita tu nombre..." />
+
+        <TextView
+            android:text="Edita la edad: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/editTextAge"
+            android:layout_width="30dp"
+            android:hint="10"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBtn"
+            android:inputType="number"
+            android:maxLength="2" />
+
+        <EditText
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:lines="5"
+            android:maxLines="5"
+            android:id="@+id/editTextAboutMyAnnoyance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBtn"
+            android:gravity="top"
+            android:hint="Edita el malestar..."
+            android:inputType="text|textMultiLine"
+            android:textAlignment="gravity" />
+
+        <EditText
+
+            android:lines="5"
+            android:maxLines="5"
+            android:id="@+id/editTextHomeTreatment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/colorBtn"
+            android:gravity="top"
+            android:hint="Edita el tratamiento casero..."
+            android:inputType="text|textMultiLine"
+            android:textAlignment="gravity" />
+
+    </LinearLayout>
+
+</LinearLayout>

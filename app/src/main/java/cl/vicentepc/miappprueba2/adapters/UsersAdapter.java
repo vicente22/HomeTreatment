@@ -12,18 +12,18 @@ import java.util.List;
 import cl.vicentepc.miappprueba2.UserClickListener;
 import cl.vicentepc.miappprueba2.R;
 import cl.vicentepc.miappprueba2.data.Queries;
-import cl.vicentepc.miappprueba2.models.Client;
+import cl.vicentepc.miappprueba2.models.User;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
-    private UserClickListener listener;
+    private List<User> users = new Queries().users();
 
-    private List<Client> clients = new Queries().clients();
+    private UserClickListener listener;
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_client, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_user, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
@@ -33,27 +33,38 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Client client = clients.get(position);
-        holder.recyclerName.setText(client.getName());
-        holder.recyclerAge.setText(String.valueOf(client.getAge()));
-        holder.recyclerMyAnnoyance.setText(client.getAboutMyAnnoyance());
-        holder.recyclerHomeTreatment.setText(client.getHomeTreatment());
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+        User user = users.get(position);
+        holder.recyclerName.setText(user.getName());
+        holder.recyclerAge.setText(String.valueOf(user.getAge()));
+        holder.recyclerMyAnnoyance.setText(user.getAboutMyAnnoyance());
+        holder.recyclerHomeTreatment.setText(user.getHomeTreatment());
+
+        holder.recyclerName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                User auxUser = users.get(holder.getAdapterPosition());
+                listener.clickedID(auxUser.getId());
+
+            }
+        });
+
     }
 
-    public void add(Client client){
-        clients.add(client);
+    public void add(User client){
+        users.add(client);
         notifyDataSetChanged();
     }
 
-    public void update(Client client) {
-        clients.add(client);
+    public void update(User client) {
+        users.add(client);
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return clients.size();
+        return users.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
