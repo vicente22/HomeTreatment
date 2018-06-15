@@ -1,4 +1,4 @@
-package cl.vicentepc.miappprueba2.views;
+package cl.vicentepc.miappprueba2.views.register;
 
 
 import android.content.Intent;

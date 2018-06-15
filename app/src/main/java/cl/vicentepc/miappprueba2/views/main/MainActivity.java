@@ -1,17 +1,18 @@
-package cl.vicentepc.miappprueba2.views;
+package cl.vicentepc.miappprueba2.views.main;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 import cl.vicentepc.miappprueba2.R;
-import cl.vicentepc.miappprueba2.adapters.UsersAdapter;
 import cl.vicentepc.miappprueba2.models.User;
+import cl.vicentepc.miappprueba2.views.result.ResultDataActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,26 +59,35 @@ public class MainActivity extends AppCompatActivity {
                     String myAnnoyance = editTextAboutMyAnnoyance.getText().toString();
                     String homeTreatment = editTextHomeTreatment.getText().toString();
 
-                    User user = new User();
-                    user.setName(name);
-                    user.setAge(age);
-                    user.setAboutMyAnnoyance(myAnnoyance);
-                    user.setHomeTreatment(homeTreatment);
+                    if (name.trim().length() > 0) {
 
-                    user.save();
+                        List<User> userCheck = User.find(User.class, "name = ?", name);
 
-                    //User user = new User(name, age, myAnnoyance, homeTreatment);
-                    //user.save();
+                        if (userCheck.size() > 0) {
 
-                    Toast.makeText(MainActivity.this, "Tratamiento guardado", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, ResultDataActivity.class);
-                    intent.putExtra("name", name);
-                    intent.putExtra("age", age);
-                    intent.putExtra("myAnnoyance", myAnnoyance);
-                    intent.putExtra("homeTreatment", homeTreatment);
-                    startActivity(intent);
+                            Toast.makeText(MainActivity.this, "USUARIO YA ESTA REGISTRADO", Toast.LENGTH_LONG).show();
+
+                        } else {
+
+                            User user = new User();
+                            user.setName(name);
+                            user.setAge(age);
+                            user.setAboutMyAnnoyance(myAnnoyance);
+                            user.setHomeTreatment(homeTreatment);
+
+                            user.save();
+
+                            Toast.makeText(MainActivity.this, "TRATAMIENTO GUARDADO", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this, ResultDataActivity.class);
+                            intent.putExtra("name", name);
+                            intent.putExtra("age", age);
+                            intent.putExtra("myAnnoyance", myAnnoyance);
+                            intent.putExtra("homeTreatment", homeTreatment);
+                            startActivity(intent);
+
+                        }
+                    }
                 }
-
             }
         });
 

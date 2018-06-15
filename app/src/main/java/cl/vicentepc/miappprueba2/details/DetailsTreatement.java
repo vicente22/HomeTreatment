@@ -9,7 +9,7 @@ import android.widget.Toast;
 import cl.vicentepc.miappprueba2.R;
 import cl.vicentepc.miappprueba2.data.Queries;
 import cl.vicentepc.miappprueba2.models.User;
-import cl.vicentepc.miappprueba2.views.RegisteredFragment;
+import cl.vicentepc.miappprueba2.views.register.RegisteredFragment;
 
 public class DetailsTreatement extends AppCompatActivity {
 

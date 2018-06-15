@@ -9,7 +9,7 @@
         android:id="@+id/fragmentRegistered"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".views.RegisteredFragment">
+        tools:context=".views.register.RegisteredFragment">
 
         <Button
             android:id="@+id/showAllBtn"

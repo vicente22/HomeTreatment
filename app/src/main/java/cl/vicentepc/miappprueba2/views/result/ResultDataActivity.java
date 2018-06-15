@@ -1,4 +1,4 @@
-package cl.vicentepc.miappprueba2.views;
+package cl.vicentepc.miappprueba2.views.result;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

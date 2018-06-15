@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".views.ResultDataActivity">
+    tools:context=".views.result.ResultDataActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
             <fragment
                 tools:layout="@layout/fragment_registered"
                 android:id="@+id/fragmentRegistered"
-                android:name="cl.vicentepc.miappprueba2.views.RegisteredFragment"
+                android:name="cl.vicentepc.miappprueba2.views.register.RegisteredFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></fragment>
 

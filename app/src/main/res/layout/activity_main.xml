@@ -7,7 +7,7 @@
     android:background="@color/colorPrimaryLight"
     android:fillViewport="true"
     android:padding="5dp"
-    tools:context=".views.MainActivity">
+    tools:context=".views.main.MainActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -120,7 +120,7 @@
         <fragment
             tools:layout="@layout/fragment_registered"
             android:id="@+id/fragmentRegistered"
-            android:name="cl.vicentepc.miappprueba2.views.RegisteredFragment"
+            android:name="cl.vicentepc.miappprueba2.views.register.RegisteredFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></fragment>
 
