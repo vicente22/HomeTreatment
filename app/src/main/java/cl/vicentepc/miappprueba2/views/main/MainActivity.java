@@ -45,17 +45,17 @@ public class MainActivity extends AppCompatActivity {
         completeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editTextName.getText().toString().trim().length() < 0) {
+                if (editTextName.getText().toString().trim().length() <= 0) {
                     Toast.makeText(MainActivity.this, "CAMPO NOMBRE ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
-                } else if (editTextAge.getText().toString().equals("")) {
+                } else if (editTextAge.getText().toString().trim().length() <= 0) {
                     Toast.makeText(MainActivity.this, "CAMPO EDAD ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
                 } else if (editTextAge.getText().toString().equals("00")) {
                     Toast.makeText(MainActivity.this, "TU EDAD DEBE SER MAYOR A 0", Toast.LENGTH_LONG).show();
                 } else if (editTextAge.getText().toString().equals("0")) {
                     Toast.makeText(MainActivity.this, "TU EDAD DEBE SER MAYOR A 0", Toast.LENGTH_LONG).show();
-                } else if (editTextAboutMyAnnoyance.getText().toString().equals("")) {
+                } else if (editTextAboutMyAnnoyance.getText().toString().trim().length() <= 0) {
                     Toast.makeText(MainActivity.this, "CAMPO MALESTAR ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
-                } else if (editTextHomeTreatment.getText().toString().equals("")) {
+                } else if (editTextHomeTreatment.getText().toString().trim().length() <= 0) {
                     Toast.makeText(MainActivity.this, "CAMPO TRATAMIENTO ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
                 } else {
 
