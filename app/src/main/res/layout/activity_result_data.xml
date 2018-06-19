@@ -86,7 +86,7 @@
                 android:id="@+id/fragmentRegistered"
                 android:name="cl.vicentepc.miappprueba2.views.register.RegisteredFragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></fragment>
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 

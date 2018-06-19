@@ -8,18 +8,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import cl.vicentepc.miappprueba2.R;
 import cl.vicentepc.miappprueba2.UserClickListener;
 import cl.vicentepc.miappprueba2.adapters.UsersAdapter;
 import cl.vicentepc.miappprueba2.details.DetailsTreatement;
-import cl.vicentepc.miappprueba2.models.User;
 
 
 /**
@@ -28,8 +25,6 @@ import cl.vicentepc.miappprueba2.models.User;
 public class RegisteredFragment extends Fragment implements UserClickListener {
 
     private RecyclerView recyclerViewResult;
-
-    private TextView textViewHomeTreatmentList;
 
     private Button showAllBtn;
 
@@ -69,6 +64,8 @@ public class RegisteredFragment extends Fragment implements UserClickListener {
         adapter = new UsersAdapter(this);
         recyclerViewResult.setAdapter(adapter);
 
+        recyclerViewResult.scrollToPosition(adapter.getItemCount());
+
         hideShow = true;
 
         if (hideShow == true) {
@@ -106,10 +103,12 @@ public class RegisteredFragment extends Fragment implements UserClickListener {
 
     }
 
-    public void updateList(User user) {
-        adapter.update(user);
-        Log.e("USER", user.getName());
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.update();
     }
+
 
     @Override
     public void clickedID(long id) {

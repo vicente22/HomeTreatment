@@ -12,9 +12,12 @@ import java.util.List;
 
 import cl.vicentepc.miappprueba2.R;
 import cl.vicentepc.miappprueba2.models.User;
+import cl.vicentepc.miappprueba2.views.register.RegisteredFragment;
 import cl.vicentepc.miappprueba2.views.result.ResultDataActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RegisteredFragment registeredFragment;
 
     private EditText editTextName;
     private EditText editTextAge;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
+        registeredFragment = (RegisteredFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentRegistered);
+
         editTextName = findViewById(R.id.editTextName);
         editTextAge = findViewById(R.id.editTextAge);
         editTextAboutMyAnnoyance = findViewById(R.id.editTextAboutMyAnnoyance);
@@ -40,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         completeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editTextName.getText().toString().equals("")) {
+                if (editTextName.getText().toString().trim().length() < 0) {
                     Toast.makeText(MainActivity.this, "CAMPO NOMBRE ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
                 } else if (editTextAge.getText().toString().equals("")) {
                     Toast.makeText(MainActivity.this, "CAMPO EDAD ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
@@ -77,12 +82,16 @@ public class MainActivity extends AppCompatActivity {
 
                             user.save();
 
+                            long id = user.getId();
+                            //registeredFragment.updateList(user);
+
                             Toast.makeText(MainActivity.this, "TRATAMIENTO GUARDADO", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MainActivity.this, ResultDataActivity.class);
                             intent.putExtra("name", name);
                             intent.putExtra("age", age);
                             intent.putExtra("myAnnoyance", myAnnoyance);
                             intent.putExtra("homeTreatment", homeTreatment);
+                            intent.putExtra("id", id);
                             startActivity(intent);
 
                         }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cl.vicentepc.miappprueba2.UserClickListener;
@@ -16,7 +17,7 @@ import cl.vicentepc.miappprueba2.models.User;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
-    private List<User> users = new Queries().users();
+    private List<User> users = new ArrayList<>();
 
     private UserClickListener listener;
 
@@ -52,13 +53,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
     }
 
-    public void add(User client){
-        users.add(client);
-        notifyDataSetChanged();
-    }
-
-    public void update(User client) {
-        users.add(client);
+    public void update() {
+        users.clear();
+        this.users.addAll(new Queries().users());
         notifyDataSetChanged();
     }
 

@@ -30,6 +30,10 @@ public class ResultDataActivity extends AppCompatActivity {
         String resultAboutMyAnnoyance = getIntent().getStringExtra("myAnnoyance");
         String resultHomeTreatment = getIntent().getStringExtra("homeTreatment");
 
+
+        //0 significaria que no le pasaron datos
+        long result_id = getIntent().getLongExtra("id", 0);
+
         textViewResultName.setText(resultName);
         textViewResultAge.setText(String.valueOf(resultAge));
         textViewAboutMyAnnoyance.setText(resultAboutMyAnnoyance);

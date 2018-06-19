@@ -37,6 +37,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:drawableLeft="@mipmap/baseline_create_black_24dp"
             android:imeOptions="actionNext"
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
@@ -51,9 +52,10 @@
             android:text="Edad: " />
 
         <EditText
+            android:drawableLeft="@mipmap/baseline_create_black_24dp"
             android:imeOptions="actionNext"
             android:id="@+id/editTextAge"
-            android:layout_width="30dp"
+            android:layout_width="50dp"
             android:hint="10"
             android:layout_height="wrap_content"
             android:background="@color/colorBtn"
@@ -71,9 +73,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+
+            android:drawableLeft="@mipmap/baseline_create_black_24dp"
             android:imeOptions="actionNext"
-            android:lines="4"
-            android:maxLines="4"
+            android:lines="1"
+            android:maxLines="1"
             android:id="@+id/editTextAboutMyAnnoyance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,8 +99,8 @@
 
         <EditText
             android:imeOptions="actionNext"
-            android:lines="4"
-            android:maxLines="4"
+            android:lines="5"
+            android:maxLines="5"
             android:id="@+id/editTextHomeTreatment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,13 +120,6 @@
             android:background="@color/colorAccent"
             android:text="AGREGAR TRATAMIENTO"
             android:textColor="@color/colorPrimaryText" />
-
-        <fragment
-            tools:layout="@layout/fragment_registered"
-            android:id="@+id/fragmentRegistered"
-            android:name="cl.vicentepc.miappprueba2.views.register.RegisteredFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></fragment>
 
     </LinearLayout>
 

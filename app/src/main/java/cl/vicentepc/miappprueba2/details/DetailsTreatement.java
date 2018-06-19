@@ -7,11 +7,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import cl.vicentepc.miappprueba2.R;
+import cl.vicentepc.miappprueba2.adapters.UsersAdapter;
 import cl.vicentepc.miappprueba2.data.Queries;
 import cl.vicentepc.miappprueba2.models.User;
 import cl.vicentepc.miappprueba2.views.register.RegisteredFragment;
 
-public class DetailsTreatement extends AppCompatActivity {
+public class DetailsTreatement extends AppCompatActivity{
+
+    private UsersAdapter usersAdapter;
 
     private long user_id;
 
@@ -76,10 +79,10 @@ public class DetailsTreatement extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        nameText = editTextName.getText().toString().trim();
-        ageText = editTextAge.getText().toString().trim();
-        myAnnoyanceText = editTextMyAnnoyance.toString().trim();
-        homeTreatmentText = editTextHomeTreatment.toString().trim();
+        nameText = editTextName.getText().toString();
+        ageText = editTextAge.getText().toString();
+        myAnnoyanceText = editTextMyAnnoyance.getText().toString();
+        homeTreatmentText = editTextHomeTreatment.getText().toString();
 
         user.setName(nameText);
         user.setAge(Integer.parseInt(ageText));
